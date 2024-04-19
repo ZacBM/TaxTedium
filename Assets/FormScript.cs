@@ -63,7 +63,7 @@ public class FormScript : MonoBehaviour
             Debug.Log (gameObject.name);
         }
 
-        List <string> textList = new List<string>();
+        textList.Clear();
         foreach (GameObject gameObject in filledText)
         {
             string newText = gameObject.GetComponentInChildren<TMP_Text>().text;
@@ -79,8 +79,11 @@ public class FormScript : MonoBehaviour
 
     public void RiskReward()
     {
-        submittedAmountFloat = float.Parse(textList[0]);
-        submittedPercentFloat = float.Parse(textList[2]);
-        Debug.Log(submittedPercentFloat + submittedAmountFloat);
+        if (textList.Count > 0)
+        {
+            submittedAmountFloat = float.Parse(textList[0]);
+            submittedPercentFloat = float.Parse(textList[2]);
+            Debug.Log(submittedPercentFloat + submittedAmountFloat);
+        }
     }
 }
